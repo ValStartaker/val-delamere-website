@@ -137,7 +137,7 @@ async function generate() {
   outputDiv.innerHTML = "<p><i>Generating...</i></p>";
 
   try {
-    const response = await fetch("https://your-backend-url.com/generate", {
+    const response = await fetch("https://web-production-3b898.up.railway.app/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(params)

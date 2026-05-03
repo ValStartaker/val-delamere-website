@@ -6,7 +6,8 @@ from flask import Flask, request, Response
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder=".", static_url_path="")
-CORS(app)  # needed since frontend and backend are on different domains
+
+CORS(app, origins=["https://val-delamere-website.pages.dev/", "https://valdelamere.com/"])
 
 @app.route("/generate", methods=["POST"])
 def generate():
