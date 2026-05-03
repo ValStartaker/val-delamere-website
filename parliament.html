@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script type="text/javascript" src="parliament.js"></script>
+    <title>Val C. Delamere</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="flags">
+          <img src="gb.png" class="flag" />
+        </div>
+
+        <div class="parliament-header">
+          <h1>Parliament Diagram Creator</h1>
+          <p style="margin-left: 1rem">
+            <a href="index.html">↩ To main page</a>
+          </p>
+        </div>
+        <div class="divider"></div>
+
+        <p>
+          The parliament diagram creator allows you to create Wikipedia-style
+          SVG illustrations of parliaments and any kind of legislative assembly.
+          The SVG code is to the credit of Gouvernathor, found
+          <a href="https://github.com/Gouvernathor/parliamentarch">here</a>.
+        </p>
+        <hr />
+
+        <div
+          style="
+            margin-top: 1rem;
+            float: right;
+            display: flex;
+            flex-direction: column;
+          "
+        >
+          <div>
+            <button class="button1" type="button" onclick="importJSON()">Import JSON</button>
+            <button class="button1" type="button" onclick="exportJSON()">Export JSON</button>
+            <button class="button1" type="button" onclick="reset()">Reset</button>
+          </div>
+
+          <div>
+            <span style="font-size: 0.9rem"
+              ><a href="json-explanation.html"
+                >Explanation of the JSON format</a
+              ></span
+            >
+          </div>
+          <button class="generate" type="button">Generate SVG</button>
+        </div>
+        <h1>Parameters</h1>
+        <ul class="parliament-list">
+          <li>
+            <label>Minimum number of rows:</label>
+            <input
+              class="text-input"
+              type="number"
+              id="min_nrows"
+              placeholder="0"
+            />
+          </li>
+          <li>
+            <label>Seat radius factor:</label>
+            <input
+              class="text-input"
+              type="number"
+              id="seat_radius_factor"
+              placeholder="1"
+            />
+          </li>
+          <li>
+            <label>Span angle:</label>
+            <input
+              class="text-input"
+              type="number"
+              id="span_angle"
+              placeholder="180"
+            />
+          </li>
+          <li>
+            <label>Canvas size:</label>
+            <input
+              class="text-input"
+              type="number"
+              id="canvas_size"
+              placeholder="200"
+            />
+          </li>
+          <li>
+            <label>Margins:</label>
+            <input
+              class="text-input"
+              type="number"
+              id="margins"
+              placeholder="5.0"
+            />
+          </li>
+          <li>
+            <label>Write number of seats?</label>
+            <input
+              class="text-input"
+              type="checkbox"
+              id="write_number_of_seats"
+            />
+          </li>
+          <li>
+            <label>Font size factor:</label>
+            <input
+              class="text-input"
+              type="number"
+              id="font_size_factor"
+              placeholder="0.2057"
+            />
+          </li>
+        </ul>
+
+            
+        <button class="button1" onclick="addParty()">Add party</button>
+
+        <!-- Hidden template (never shown, never removed) -->
+        <ul
+          class="parliament-list party-group"
+          id="party-template"
+          style="display: none"
+        >
+          <li>
+            <label>Party name:</label>
+            <input class="text-input" type="text" placeholder="Party 1" />
+          </li>
+          <ul class="parliament-list">
+            <li>
+              <label>Color:</label><input class="text-input" type="color" />
+            </li>
+            <li>
+              <label>Border size:</label
+              ><input class="text-input" type="number" placeholder="0" />
+            </li>
+            <li>
+              <label>Border color:</label
+              ><input class="text-input" type="color" />
+            </li>
+            <li>
+              <label>Number of seats:</label
+              ><input class="text-input" type="number" placeholder="1" />
+            </li>
+          </ul>
+        </ul>
+
+        <!-- Initial visible party group -->
+        <ul class="parliament-list party-group">
+          <li>
+            <label>Party name:</label>
+            <input class="text-input" type="text" placeholder="Party 1" />
+          </li>
+          <ul class="parliament-list">
+            <li>
+              <label>Color:</label><input class="text-input" type="color" />
+            </li>
+            <li>
+              <label>Border size:</label
+              ><input class="text-input" type="number" placeholder="0" />
+            </li>
+            <li>
+              <label>Border color:</label
+              ><input class="text-input" type="color" />
+            </li>
+            <li>
+              <label>Number of seats:</label
+              ><input class="text-input" type="number" placeholder="1" />
+            </li>
+          </ul>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

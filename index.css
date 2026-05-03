@@ -1,0 +1,142 @@
+body {
+  line-height: 1.45;
+  font-size: 1.225rem;
+  font-family: Vollkorn, "Times New Roman", Times, serif;
+  background-color: #eee;
+}
+
+main {
+  max-inline-size: 70ch;
+  max-width: 60rem;
+  display: block;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem 0.25rem;
+  border: 1px solid #888;
+  box-shadow: 2px 2px #ccc;
+  background-color: #fff;
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+h1 {
+  font-variant: small-caps;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+.flag {
+  display: inline-block;
+  block-size: 0.5em;
+  max-inline-size: none;
+  margin: 0;
+  border: 1px solid #000;
+}
+
+.flags {
+  float: right;
+}
+
+ul {
+  list-style-type: "❖ ";
+}
+
+.divider {
+  background: repeating-linear-gradient(
+    135deg,
+    #000 0px,
+    #000 1.414px,
+    #fff 1.414px,
+    #fff 14.14px
+  );
+  height: 1rem;
+  max-height: 1rem;
+}
+
+.main-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.child-box {
+    text-align: left;
+    width: 50%;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  line-height: 0;
+}
+
+/* Tooltip text */
+.tooltiptext {
+visibility: hidden;
+margin-left: 5px;
+font-size: 0.9rem;
+color: #444
+}
+
+/* Show the tooltip text on hover */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.button1 {
+  font-family: inherit;
+  border: 1px solid #888;
+  box-shadow: 2px 2px #ccc;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.button1:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.generate {
+  font-family: inherit;
+  width: 100%;
+  background-color: #00794c;
+  color: white;
+  border: 1px solid #888;
+  box-shadow: 2px 2px #ccc;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.generate:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.parliament-header {
+  display: flex;
+}
+
+.parliament-list {
+  list-style-type: square;
+}
+
+.text-input {
+  border: 1px solid black;
+}
