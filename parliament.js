@@ -152,6 +152,13 @@ async function generate() {
     const svgText = await response.text();
     outputDiv.innerHTML = svgText;
 
+    // Constrain the SVG to fit its container
+    const svgEl = outputDiv.querySelector("svg");
+    if (svgEl) {
+     svgEl.style.width = "100%";
+    svgEl.style.height = "auto";
+    }
+
     // Add a download link beneath the SVG
     const blob = new Blob([svgText], { type: "image/svg+xml" });
     const a = document.createElement("a");
