@@ -101,7 +101,7 @@ color: #444
 
 .button1 {
   font-family: inherit;
-  border: 1px solid #888;
+  border: 1px solid #000;
   box-shadow: 2px 2px #ccc;
   padding: 5px;
   font-size: 1rem;
@@ -118,7 +118,7 @@ color: #444
   width: 100%;
   background-color: #00794c;
   color: white;
-  border: 1px solid #888;
+  border: 1px solid #000;
   box-shadow: 2px 2px #ccc;
   padding: 5px;
   font-size: 1rem;
@@ -139,4 +139,17 @@ color: #444
 
 .text-input {
   border: 1px solid black;
+}
+
+pre code {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  font-family: monospace;
+  padding-left: 1rem;
+  border-left: 1px solid #888;
+}
+
+.delete {
+  background-color: #F20018;
+  color: white;
 }

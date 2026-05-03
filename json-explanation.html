@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Val C. Delamere — JSON Format</title>
+    <style>
+      pre {
+        background-color: #f4f4f4;
+        border: 1px solid #ccc;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        overflow-x: auto;
+        line-height: 1.5;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      th {
+        text-align: left;
+        border-bottom: 2px solid #000;
+        padding: 0.25rem 0.5rem;
+        font-weight: 600;
+      }
+
+      td {
+        border-bottom: 1px solid #ccc;
+        padding: 0.35rem 0.5rem;
+        vertical-align: top;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      code {
+        font-size: 0.9rem;
+        background-color: #f4f4f4;
+        padding: 0 3px;
+        border: 1px solid #ddd;
+      }
+
+      h2 {
+        margin-top: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="flags">
+          <img src="gb.png" class="flag" />
+        </div>
+
+        <div class="parliament-header">
+          <h1>JSON Format Explanation</h1>
+          <p style="margin-left: 1rem">
+            <a href="parliament.html">↩ To parliament creator</a>
+          </p>
+        </div>
+        <div class="divider"></div>
+
+        <p>
+          Below is an example of the JSON format accepted by the parliament
+          diagram creator, followed by an explanation of each field.
+        </p>
+
+        <pre>
+{
+  "min_nrows": 0,
+  "seat_radius_factor": 1,
+  "span_angle": 180,
+  "canvas_size": 200,
+  "margins": 5.0,
+  "write_number_of_seats": true,
+  "font_size_factor": 0.2057,
+  "attrib": [
+    {
+      "data": "Party A",
+      "color": "#992A2A",
+      "border_size": 0,
+      "border_color": "#000000",
+      "nseats": 77
+    },
+    {
+      "data": "Party B",
+      "color": "#4466FF",
+      "border_size": 1,
+      "border_color": "#000000",
+      "nseats": 43
+    }
+  ]
+}</pre
+        >
+
+        <hr />
+        <h2>Global parameters</h2>
+        <table>
+          <tr>
+            <th>Field</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td><code>min_nrows</code></td>
+            <td><code>0</code></td>
+            <td>
+              The minimum number of concentric arcs of seats in the diagram. If
+              the total number of seats requires fewer arcs than this value,
+              extra empty arcs will be added.
+            </td>
+          </tr>
+          <tr>
+            <td><code>seat_radius_factor</code></td>
+            <td><code>1</code></td>
+            <td>
+              Scales the size of each individual seat dot. Values greater than 1
+              make seats larger; values less than 1 make them smaller.
+            </td>
+          </tr>
+          <tr>
+            <td><code>span_angle</code></td>
+            <td><code>180</code></td>
+            <td>
+              The angle in degrees that the diagram spans.
+              <code>180</code> produces a standard semicircle. Values less than
+              180 produce a narrower arc. Values above 180 are not supported.
+            </td>
+          </tr>
+          <tr>
+            <td><code>canvas_size</code></td>
+            <td><code>200</code></td>
+            <td>
+              The size of the output SVG canvas in arbitrary units. Larger
+              values produce a higher-resolution SVG.
+            </td>
+          </tr>
+          <tr>
+            <td><code>margins</code></td>
+            <td><code>5.0</code></td>
+            <td>
+              The amount of blank space added around the diagram within the
+              canvas, in the same units as <code>canvas_size</code>.
+            </td>
+          </tr>
+          <tr>
+            <td><code>write_number_of_seats</code></td>
+            <td><code>false</code></td>
+            <td>
+              If <code>true</code>, the total number of seats is printed as a
+              label in the centre of the diagram.
+            </td>
+          </tr>
+          <tr>
+            <td><code>font_size_factor</code></td>
+            <td><code>0.2057</code></td>
+            <td>
+              Scales the size of the seat count label shown when
+              <code>write_number_of_seats</code> is enabled.
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <h2>Party fields (<code>attrib</code>)</h2>
+        <p>
+          The <code>attrib</code> array contains one object per party or group.
+          Parties are drawn in the order they appear, filling from the outermost
+          arc inward.
+        </p>
+        <table>
+          <tr>
+            <th>Field</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td><code>data</code></td>
+            <td>
+              The name of the party or group. Used as a label in the diagram
+              legend.
+            </td>
+          </tr>
+          <tr>
+            <td><code>color</code></td>
+            <td>
+              The fill colour of the seat dots for this party, as a hex colour
+              code (e.g. <code>#992A2A</code>).
+            </td>
+          </tr>
+          <tr>
+            <td><code>border_size</code></td>
+            <td>
+              The thickness of the outline drawn around each seat dot. Defaults
+              to <code>0</code> (no outline).
+            </td>
+          </tr>
+          <tr>
+            <td><code>border_color</code></td>
+            <td>
+              The colour of the outline, as a hex colour code. Only visible when
+              <code>border_size</code> is greater than 0.
+            </td>
+          </tr>
+          <tr>
+            <td><code>nseats</code></td>
+            <td>The number of seats this party holds.</td>
+          </tr>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>
