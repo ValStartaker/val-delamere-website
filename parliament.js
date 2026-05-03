@@ -167,3 +167,7 @@ async function generate() {
     outputDiv.innerHTML = `<p style="color:red">Request failed: ${err}</p>`;
   }
 }
+
+function deleteAllParties() {
+  document.querySelectorAll("ul.party-group:not(#party-template)").forEach(g => g.remove());
+}
