@@ -51,7 +51,8 @@
               ></span
             >
           </div>
-          <button class="generate" type="button">Generate SVG</button>
+          <button class="generate" type="button" onclick="generate()">Generate SVG</button>
+          <div id="svg-output" style="margin-top: 1rem;"></div>
         </div>
         <h1>Parameters</h1>
         <ul class="parliament-list">
@@ -119,7 +120,7 @@
           </li>
         </ul>
 
-            
+
         <button class="button1" onclick="addParty()">Add party</button>
 
         <!-- Hidden template (never shown, never removed) -->

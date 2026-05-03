@@ -7,7 +7,7 @@ from flask_cors import CORS
 
 app = Flask(__name__, static_folder=".", static_url_path="")
 
-CORS(app, origins=["https://val-delamere-website.pages.dev/", "https://valdelamere.com/"])
+CORS(app, origins=["https://val-delamere-website.pages.dev", "https://valdelamere.com"])
 
 @app.route("/generate", methods=["POST"])
 def generate():
