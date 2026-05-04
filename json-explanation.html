@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
-    <title>Val C. Delamere — JSON Format</title>
+    <title>Val C. Delamere</title>
     <style>
       pre {
         background-color: #f4f4f4;
@@ -59,7 +59,7 @@
         </div>
 
         <div class="parliament-header">
-          <h1>JSON Format Explanation</h1>
+          <h1>Explanation of SVG parameters & the JSON format</h1>
           <p style="margin-left: 1rem">
             <a href="parliament.html">↩ To parliament creator</a>
           </p>
@@ -100,7 +100,12 @@
         >
 
         <hr />
-        <h2>Global parameters</h2>
+        <h2>
+          Global parameters (from
+          <a href="https://github.com/Gouvernathor/parliamentarch"
+            >documentation</a
+          >)
+        </h2>
         <table>
           <tr>
             <th>Field</th>
@@ -111,17 +116,18 @@
             <td><code>min_nrows</code></td>
             <td><code>0</code></td>
             <td>
-              The minimum number of concentric arcs of seats in the diagram. If
-              the total number of seats requires fewer arcs than this value,
-              extra empty arcs will be added.
+              The minimum number of rows to use. Only taken into account if the
+              required number of rows to hold the given number of seats is less
+              than that. Defaults to 0, which means using the minimum number of
+              rows possible.
             </td>
           </tr>
           <tr>
             <td><code>seat_radius_factor</code></td>
             <td><code>1</code></td>
             <td>
-              Scales the size of each individual seat dot. Values greater than 1
-              make seats larger; values less than 1 make them smaller.
+              The ratio of the seats radius over the row thickness. Defaults to
+              1, which makes seats touch their neighbors.
             </td>
           </tr>
           <tr>
@@ -137,24 +143,27 @@
             <td><code>canvas_size</code></td>
             <td><code>200</code></td>
             <td>
-              The size of the output SVG canvas in arbitrary units. Larger
-              values produce a higher-resolution SVG.
+              The height of the 2:1 rectangle in which the hemicycle will be
+              drawn.
             </td>
           </tr>
           <tr>
             <td><code>margins</code></td>
             <td><code>5.0</code></td>
             <td>
-              The amount of blank space added around the diagram within the
-              canvas, in the same units as <code>canvas_size</code>.
+              The margins around that rectangle. If four values are given, they
+              are the left, top, right, and bottom margins, in that order. If
+              two values are given, they are the horizontal and vertical
+              margins, in that order. If one value is given, it is used for all
+              four margins.
             </td>
           </tr>
           <tr>
             <td><code>write_number_of_seats</code></td>
             <td><code>false</code></td>
             <td>
-              If <code>true</code>, the total number of seats is printed as a
-              label in the centre of the diagram.
+              Whether to write the total number of seats at the bottom center of
+              the diagram - in the well of the House.
             </td>
           </tr>
           <tr>
@@ -169,9 +178,9 @@
         <hr />
         <h2>Party fields (<code>attrib</code>)</h2>
         <p>
-          The <code>attrib</code> array contains one object per party or group.
-          Parties are drawn in the order they appear, filling from the outermost
-          arc inward.
+          A factor you should tweak to change the font size of the number of
+          seats. The default value is <code>0.2057</code>. Keeping this constant will
+          keep the font size in scale when changing the canvas size.
         </p>
         <table>
           <tr>
@@ -181,8 +190,7 @@
           <tr>
             <td><code>data</code></td>
             <td>
-              The name of the party or group. Used as a label in the diagram
-              legend.
+              Metadata about the group of seats, which will end up in the SVG file. Typically the name of the party or of the member.
             </td>
           </tr>
           <tr>
